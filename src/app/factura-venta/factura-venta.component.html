@@ -1,3 +1,8 @@
+
+<div class="example-button-row">
+    <button mat-raised-button (click)="cerrarSesion()">Cerrar Sesion</button>   
+  </div>
+
 <div class="form">
     <div>
             <p style="text-align: center; font-size:24px">Factura De Venta</p>    
@@ -34,7 +39,18 @@
                 <div *ngIf="inicial.errors.minlength">minimo {{inicial.errors.minlength.requiredLength}} Caracteres</div>
                 <div *ngIf="inicial.errors.required"> Num. inicial requerido</div>
             </div>
-         
+            <div class="mensaje" *ngIf="validarPre" style="width: 250px">
+               <span>{{mensaje}}</span>
+            </div>
+            <div class="mensaje" *ngIf="validarIni" style="width: 250px">
+                {{numeroInicial}}
+            </div>
+            <div class="mensaje" *ngIf="validarFin" style="width: 250px">
+                {{numeroFinal}}
+            </div>
+            <div class="mensaje" *ngIf="existencia" style="width: 250px">
+                <span>Factura no existe</span>
+            </div>
         </div>
         
         <input class="input" type="submit" value="Impresion De Facturas" >

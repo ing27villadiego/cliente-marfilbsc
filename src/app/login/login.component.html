@@ -17,7 +17,8 @@
                 <mat-form-field class="input">
                 <input type="password" matInput placeholder="Password"  ngModel #password="ngModel" required minlength="1"  name="password" >
                 <i matSuffix class="material-icons">lock</i>
-                </mat-form-field>  
+                </mat-form-field> 
+               
 
                 <div class="contenedorMsj" >
                     <div class="mensaje" *ngIf="usuario.touched && !usuario.valid">
@@ -28,6 +29,9 @@
                         <div *ngIf="password.errors.minlength">minimo {{password.errors.minlength.requiredLength}} Caracteres</div>
                         <div *ngIf="password.errors.required">Favor ingresar contraseña</div>
                     </div>
+                    <div *ngIf="msjError1" class="mensaje">
+                        <span>{{mensaje1}}</span>
+                    </div> 
                 </div>
         
                 <div class="button">

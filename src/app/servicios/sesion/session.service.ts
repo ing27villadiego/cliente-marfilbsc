@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/internal/operators/map';
 import { environment } from 'src/environments/environment';
 
+
 // model de user
 import { Usuario } from '../../modelos/usuario.model';
 
@@ -26,6 +27,7 @@ export class SessionService {
   });
 
   estadoSesion(){
+    this.validarStorage();
     return (this.token_key.length > 5) ? true : false
   }
 
@@ -43,9 +45,13 @@ export class SessionService {
     }
   }
 
+  removerStorage(){
+    localStorage.removeItem('token_key');
+  }
+
 
   iniciarSesion(usuario: any) {
-    const url: string = this.iniciarsesion + 'administrativo/usuarios/sesion';
+    const url: string = this.iniciarsesion + 'administrativo/usuar';
     return this.http.post( url, usuario,
                          { headers : this.headers})
                     .pipe(map((resp: any) => {

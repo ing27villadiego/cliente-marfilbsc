@@ -7,24 +7,14 @@ import { SesionGuard } from './servicios/servicios.index'
 
 const routes: Routes = [
   { 
-    path: '', 
+    path: 'facturas', 
     component: FacturaVentaComponent,
     canActivate: [SesionGuard],
-    children: [
-      {
-        path: 'facturas',
-        component: FacturaVentaComponent
-      },
-      {
-        path: '',
-        redirectTo: '/facturas', 
-        pathMatch: 'full'
-      }
-    ] 
   },
   {
     path: 'sesion',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [SesionGuard]
   },
   {
     path: '**',
